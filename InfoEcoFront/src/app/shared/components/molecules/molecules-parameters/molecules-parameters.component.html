@@ -1,0 +1,34 @@
+<div *ngFor="let item of value; let i = index">
+  <div *ngIf="item.parametrageListes == null">
+    <span class="input-value">
+      <molecules-input-number
+        longueur="285"
+        [placeholder]="item.libelle"
+        [formatNumber]="item.unite.nom === '%' || item.unite.nom === '€' ? true : false"
+        [uniteDeMesure]="item.unite.nom"
+        [avecDecimal]="item.unite.nom === '%'"
+        [id]="item.id.toString()"
+        [valeurReel]="item.valeur"
+        (changeValeur)="changeValeur($event)"
+      ></molecules-input-number>
+    </span>
+    <span class="input-unite">
+      <label>{{ item.unite.nom }}</label>
+    </span>
+  </div>
+  <div *ngIf="item.parametrageListes != null">
+    <molecules-select
+      longueur="285"
+      [placeholder]="item.libelle"
+      [data]="toObservable(item.parametrageListes)"
+      [valeurReel]="item.valeur"
+    ></molecules-select>
+  </div>
+  <div>
+    <div style="text-align: center">
+      <button type="button" class="button-styled-green button-styled" (click)="close()" *ngIf="i === value.length - 1">
+        {{ libelleBouton }}
+      </button>
+    </div>
+  </div>
+</div>

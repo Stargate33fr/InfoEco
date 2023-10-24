@@ -1,0 +1,19 @@
+<div class="textfield-outlined">
+  <nz-date-picker
+    style="width: 200px"
+    nzPlaceHolder=" "
+    [nzFormat]="format"
+    [@selectState]="selectState"
+    [(ngModel)]="selectedValue"
+    (nzFocus)="onAnimateDessusSelectionne()"
+    (nzOnOpenChange)="onAnimateDessusSelectionne()"
+    (ngModelChange)="onChange($event)"
+    (focusout)="onAnimate()"
+    [disabled]="disabled"
+  ></nz-date-picker>
+  <div [@divState]="state">
+    <label [for]="id" [style.width.px]="longueur"
+      ><span class="placeHolderText">{{ placeholder }}</span></label
+    >
+  </div>
+</div>

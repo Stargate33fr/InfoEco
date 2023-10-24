@@ -1,0 +1,11 @@
+C:\Users\fdepret\source\repos\Infeco.api\InfoEco.Domain\bin\Release\net7.0\InfoEco.Domain.deps.json
+C:\Users\fdepret\source\repos\Infeco.api\InfoEco.Domain\bin\Release\net7.0\InfoEco.Domain.dll
+C:\Users\fdepret\source\repos\Infeco.api\InfoEco.Domain\bin\Release\net7.0\InfoEco.Domain.pdb
+C:\Users\fdepret\source\repos\Infeco.api\InfoEco.Domain\obj\Release\net7.0\InfoEco.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fdepret\source\repos\Infeco.api\InfoEco.Domain\obj\Release\net7.0\InfoEco.Domain.AssemblyInfoInputs.cache
+C:\Users\fdepret\source\repos\Infeco.api\InfoEco.Domain\obj\Release\net7.0\InfoEco.Domain.AssemblyInfo.cs
+C:\Users\fdepret\source\repos\Infeco.api\InfoEco.Domain\obj\Release\net7.0\InfoEco.Domain.csproj.CoreCompileInputs.cache
+C:\Users\fdepret\source\repos\Infeco.api\InfoEco.Domain\obj\Release\net7.0\InfoEco.Domain.dll
+C:\Users\fdepret\source\repos\Infeco.api\InfoEco.Domain\obj\Release\net7.0\refint\InfoEco.Domain.dll
+C:\Users\fdepret\source\repos\Infeco.api\InfoEco.Domain\obj\Release\net7.0\InfoEco.Domain.pdb
+C:\Users\fdepret\source\repos\Infeco.api\InfoEco.Domain\obj\Release\net7.0\ref\InfoEco.Domain.dll

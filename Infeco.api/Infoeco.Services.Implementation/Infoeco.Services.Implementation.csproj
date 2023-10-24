@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.6.3" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="8.6.3" />
+    <PackageReference Include="JWT" Version="10.1.1" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.3.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InfoEco.Domain\InfoEco.Domain.csproj" />
+    <ProjectReference Include="..\infoeco.infrastructure\Infoeco.infrastructure.csproj" />
+    <ProjectReference Include="..\Infoeco.Services\Infoeco.Services.csproj" />
+  </ItemGroup>
+
+</Project>

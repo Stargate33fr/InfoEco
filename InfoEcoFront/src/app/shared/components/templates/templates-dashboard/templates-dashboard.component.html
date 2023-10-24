@@ -1,0 +1,14 @@
+<div *ngIf="utilisateur$ | async as user">
+  <div nz-row>
+    <div nz-col nzSpan="12">
+      <Label>Bonjour {{ user.prenom }} </Label>
+    </div>
+    <div nz-col nzSpan="12"><label>Bienvenue sur votre plateforme de gestion locative</label></div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <organismes-dashboard [utilisateur]="user"></organismes-dashboard>
+    </div>
+    <div></div>
+  </div>
+</div>

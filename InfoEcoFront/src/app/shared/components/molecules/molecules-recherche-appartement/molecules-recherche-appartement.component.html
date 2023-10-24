@@ -1,0 +1,39 @@
+<form nz-form [formGroup]="formRechercheAppartement">
+  <div nz-row nzGutter="24">
+    <nz-form-item>
+      <nz-form-control>
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+          <input
+            nz-input
+            autocomplete
+            [(ngModel)]="ville"
+            formControlName="ville"
+            [nzAutocomplete]="auto"
+            (input)="onInput($event)"
+            placeholder="Ville"
+            (ngModelChange)="selectOption($event)"
+          />
+          <nz-autocomplete #auto>
+            <ng-container *ngIf="displayTips; else dataVilles">
+              <nz-option nzDisabled nzCustomContent> Ville ou Code Postal </nz-option>
+            </ng-container>
+            <ng-template #dataVilles>
+              <ng-container *ngIf="villeItems; else loadingVilles">
+                <nz-auto-option *ngFor="let o of villeItems" [nzValue]="o.id">{{ o.nom }}</nz-auto-option>
+              </ng-container>
+            </ng-template>
+            <ng-template #loadingVilles>
+              <nz-option nzDisabled nzCustomContent>
+                <div class="organismes-contact-filter-loading" nz-row nzType="flex" nzJustify="center">
+                  <nz-spin nzSimple></nz-spin></div
+              ></nz-option>
+            </ng-template>
+          </nz-autocomplete>
+        </nz-input-group>
+        <ng-template #suffixIconSearch>
+          <i nz-icon nzType="search"></i>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+</form>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infeco.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Infeco.Api.Common.SwashBuckle.AttachOperationNameFilter">
+            <summary>
+            AttachOperationNameFilter
+            </summary>
+        </member>
+        <member name="M:Infeco.Api.Common.SwashBuckle.AttachOperationNameFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Apply
+            </summary>
+            <param name="operation">operation</param>
+            <param name="context">context</param>
+        </member>
+    </members>
+</doc>

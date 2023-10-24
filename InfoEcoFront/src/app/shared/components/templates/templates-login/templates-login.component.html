@@ -1,0 +1,60 @@
+<div id="LoginIdentification">
+  <div id="LoginBox">
+    <div class="FlexContainer" id="LeftBox">
+      <div id="Logo" [class]="headerClass"></div>
+      <div id="VersionText">© {{ annee }}&nbsp;-&nbsp;v1.0.0.0</div>
+    </div>
+    <div class="FlexContainer" id="RightBox">
+      <div class="FormTitle">
+        <span id="LabelTitreFormulaire"
+          ><span id="LabelTitreFormulaire_Label_LabelTitreFormulaire" class="CRMLabel">Identifiez-vous</span></span
+        >
+      </div>
+      <form nz-form [nzLayout]="'horizontal'" [formGroup]="loginForm" class="login-form" (ngSubmit)="valid()">
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="identifiant required">
+            <nz-input-group nzPrefixIcons="user">
+              <input id="email" formControlName="email" nz-input placeholder="Adresse email" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="mot de passe required">
+            <nz-input-group nzPrefixIcon="lock">
+              <input id="password" formControlName="password" nz-input type="password" placeholder="mot de passe" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <button
+              nz-button
+              nzBlock
+              [nzLoading]="loading$ | async"
+              nzType="primary"
+              [disabled]="!loginForm.valid"
+              class="button-connexion"
+            >
+              Connexion
+            </button>
+            <!-- <a (click)="motDePasseOublie()" nz-row nzType="flex" nzJustify="end" class="login-form-forgot">{{
+            'login.forgotten_password' | translate
+          }}</a> -->
+          </nz-form-control>
+        </nz-form-item>
+        <div class="PasswordLost">
+          <a id="lienPerteMotDePasse" causesvalidation="False">J'ai oublié mon mot de passe</a>
+        </div>
+        <div class="TextInfo">
+          <span id="lblConditionsDebut">En cliquant sur Connexion, vous acceptez nos </span>
+          <a id="LienConditions" causesvalidation="False" target="_blank">conditions</a>
+          <span id="lblConditionsFin"></span>
+          <br />
+          <span id="lblConfidentialiteDebut">Vous pouvez consulter notre </span>
+          <a id="LienConfidentialite" causesvalidation="False" target="_blank">déclaration de confidentialité</a>
+          <span id="lblConfidentialiteFin"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

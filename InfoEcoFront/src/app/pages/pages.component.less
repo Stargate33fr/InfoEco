@@ -1,0 +1,216 @@
+@import '../../assets/_mixins.less';
+
+[nz-menu] {
+  line-height: 25px;
+  background-color: #b6b6bf47;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-height: 44px;
+  min-height: 44px;
+  scroll-padding-inline: auto;
+  padding-top: 2px;
+}
+
+.menu-vertical {
+  width: 250px;
+}
+
+.ant-layout.ant-layout-has-sider > .ant-layout,
+.ant-layout.ant-layout-has-sider > .ant-layout-content {
+  overflow-x: auto !important;
+}
+
+.ant-layout-header {
+  height: 78px;
+}
+
+nz-header {
+  font-family: @fontFamily;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid @silver;
+}
+
+ul li {
+  font-family: @fontFamily;
+  z-index: 1;
+}
+
+.ant-menu .ant-menu-vertical {
+  width: 1250px;
+}
+
+.container {
+  position: relative; /*Permet à la position absolue de se fixer par rapport à ce container*/
+  width: 100%;
+  height: auto;
+  margin: auto;
+  z-index: 999;
+}
+
+img {
+  width: 100%; /*L'image prendra toute la place disponible*/
+}
+
+.content1 {
+  position: absolute; /*On déplace la division n'importe ou dans le container*/
+  top: 1%;
+  /*Centrage de la division*/
+  left: 50%; /*On débute la division à 50% du coté gauche du CONTAINER*/
+  transform: translateX(-50%); /*On redéplace de 50% du CONTENT1, la division*/
+}
+
+.content2 {
+  position: absolute;
+  bottom: -24px;
+  right: -15px;
+  font-size: 10px;
+}
+
+.contentSousMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  font-family: @fontFamily;
+  font-size: 10px;
+  transform: translate(-50%, -50%);
+  top: 42px;
+}
+
+ul li .anticon-class {
+  display: block;
+  font-family: @fontFamily;
+  white-space: nowrap;
+  text-align: center;
+  transform: scale(0.83);
+}
+
+.helvet {
+  font-family: @fontFamily;
+}
+
+nz-footer {
+  font-family: @fontFamily;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  & .footer {
+    height: 100%;
+  }
+}
+
+nz-content {
+  overflow-x: scroll;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(255, 254, 254);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(168, 168, 168);
+  border-radius: 20px;
+  // border: 3px solid orange;
+}
+
+.ant-layout.ant-layout-has-sider > .ant-layout,
+.ant-layout.ant-layout-has-sider > .ant-layout-content {
+  overflow-x: auto !important;
+}
+
+element.style {
+  width: 80px;
+}
+
+nz-layout:last-child {
+  margin: 0;
+}
+
+.gridster-tool {
+  &-reset {
+    margin-left: @padding-lg;
+  }
+  button {
+    margin-right: 5px;
+  }
+}
+
+.routing-spin {
+  margin-left: @padding-m;
+  width: 30px;
+}
+
+.global-layout {
+  height: 100vh;
+  font-family: @fontFamily;
+}
+
+.marquee .inner ul li {
+  display: inline-block;
+  margin-right: 5px;
+  cursor: grabbing;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-top: 0;
+}
+
+.marquee .inner {
+  position: relative;
+  width: 90%;
+  display: flex;
+  font-size: 1rem;
+  user-select: none;
+}
+.marquee .inner > * {
+  white-space: nowrap;
+}
+
+.description {
+  padding: 0.25rem 6px;
+  z-index: 1;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+.alignright {
+  float: right;
+}
+
+.alignleft {
+  float: left;
+}
+
+.plusinfo {
+  line-height: 1;
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: white;
+}
+
+.description h1 {
+  line-height: 1;
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: white;
+}
+
+.description div {
+  font-size: 0.7rem;
+  color: white;
+}

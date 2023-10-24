@@ -1,0 +1,14 @@
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\bin\Release\net7.0\Infoeco.infrastructure.deps.json
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\bin\Release\net7.0\Infoeco.infrastructure.runtimeconfig.json
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\bin\Release\net7.0\Infoeco.infrastructure.dll
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\bin\Release\net7.0\Infoeco.infrastructure.pdb
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\obj\Release\net7.0\Infoeco.infrastructure.csproj.AssemblyReference.cache
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\obj\Release\net7.0\Infoeco.infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\obj\Release\net7.0\Infoeco.infrastructure.AssemblyInfoInputs.cache
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\obj\Release\net7.0\Infoeco.infrastructure.AssemblyInfo.cs
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\obj\Release\net7.0\Infoeco.infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\obj\Release\net7.0\Infoeco.infrastructure.dll
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\obj\Release\net7.0\refint\Infoeco.infrastructure.dll
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\obj\Release\net7.0\Infoeco.infrastructure.pdb
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\obj\Release\net7.0\Infoeco.infrastructure.genruntimeconfig.cache
+C:\Users\fdepret\source\repos\Infeco.api\infoeco.infrastructure\obj\Release\net7.0\ref\Infoeco.infrastructure.dll

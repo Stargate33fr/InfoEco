@@ -1,0 +1,16 @@
+<div class="textfield-outlined">
+  <input
+    #inputElement
+    nz-input
+    [id]="id"
+    type="text"
+    placeholder=" "
+    [disabled]="disabled"
+    [ngModel]="valueAutre"
+    (ngModelChange)="onChange($event)"
+    [style.width.px]="longueur"
+  />
+  <label [for]="id" [style.width.px]="longueur"
+    ><span class="placeHolderText">{{ placeholder }}</span></label
+  >
+</div>

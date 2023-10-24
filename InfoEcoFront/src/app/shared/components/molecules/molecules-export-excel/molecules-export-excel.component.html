@@ -1,0 +1,20 @@
+<button
+  class="buttonUpdate"
+  nz-button
+  nz-tooltip
+  nzType="primary"
+  nzShape="circle"
+  [nzTooltipTitle]="titleToolTipPrintFacture"
+  nzTooltipPlacement="bottom"
+  (click)="downloadData()"
+>
+  <i nz-icon nzType="printer" nzTheme="outline"></i>
+  <nz-spin class="spinner" [nzSpinning]="loading"> </nz-spin>
+</button>
+
+<ng-template #titleToolTipPrintFacture>
+  <i nz-icon nzType="info-circle" nzTheme="outline"></i>
+  <span> télécharger</span>
+</ng-template>
+
+<ng-template #target></ng-template>

@@ -1,0 +1,25 @@
+<div class="textfield-outlined">
+  <nz-select
+    [@selectState]="selectState"
+    (ngModelChange)="onChange($event)"
+    *ngIf="data | withLoading | async as datas"
+    [(ngModel)]="selectedValue"
+    [id]="id"
+    nzPlaceHolder=" "
+    nzAllowClear
+    nzShowSearch
+    [style.width.px]="longueur"
+    [nzLoading]="datas.loading"
+    (nzFocus)="onAnimateDessusSelectionne()"
+    (nzBlur)="onAnimate()"
+    [disabled]="disabled"
+  >
+    >
+    <nz-option *ngFor="let item of datas.valeur" [nzValue]="item.id" [nzLabel]="item.nom"></nz-option>
+  </nz-select>
+  <div [@divState]="state">
+    <label [for]="id" [style.width.px]="longueur"
+      ><span class="placeHolderText">{{ placeholder }}</span></label
+    >
+  </div>
+</div>

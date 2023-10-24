@@ -1,0 +1,31 @@
+@import '../../../../../assets/_mixins.less';
+
+h1 {
+  background-color: @white;
+  margin-bottom: 0px;
+  padding: @padding-xs @padding-m 0 @padding-m;
+}
+
+gridster {
+  overflow-y: scroll;
+  height: calc(100% - 50px);
+}
+
+gridster-item {
+  box-shadow: 4px 4px 4px #163744;
+  border-radius: 14px;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(255, 254, 254);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(168, 168, 168);
+  border-radius: 20px;
+}

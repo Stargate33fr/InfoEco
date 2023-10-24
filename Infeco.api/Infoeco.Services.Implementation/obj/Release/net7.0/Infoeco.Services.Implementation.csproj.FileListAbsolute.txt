@@ -1,0 +1,17 @@
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\bin\Release\net7.0\Infoeco.Services.Implementation.deps.json
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\bin\Release\net7.0\Infoeco.Services.Implementation.dll
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\bin\Release\net7.0\Infoeco.Services.Implementation.pdb
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\bin\Release\net7.0\Infoeco.infrastructure.dll
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\bin\Release\net7.0\Infoeco.Services.dll
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\bin\Release\net7.0\Infoeco.infrastructure.pdb
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\bin\Release\net7.0\Infoeco.Services.pdb
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\obj\Release\net7.0\Infoeco.Services.Implementation.csproj.AssemblyReference.cache
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\obj\Release\net7.0\Infoeco.Services.Implementation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\obj\Release\net7.0\Infoeco.Services.Implementation.AssemblyInfoInputs.cache
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\obj\Release\net7.0\Infoeco.Services.Implementation.AssemblyInfo.cs
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\obj\Release\net7.0\Infoeco.Services.Implementation.csproj.CoreCompileInputs.cache
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\obj\Release\net7.0\Infoeco.Services.Implementation.csproj.CopyComplete
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\obj\Release\net7.0\Infoeco.Services.Implementation.dll
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\obj\Release\net7.0\refint\Infoeco.Services.Implementation.dll
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\obj\Release\net7.0\Infoeco.Services.Implementation.pdb
+C:\Users\fdepret\source\repos\Infeco.api\Infoeco.Services.Implementation\obj\Release\net7.0\ref\Infoeco.Services.Implementation.dll

@@ -1,0 +1,32 @@
+<div class="flex-container organismes-header">
+  <div>
+    <a [routerLink]="['/']"><img class="logo" [src]="cheminLogo" /></a>
+  </div>
+  <ul nz-menu nzMode="horizontal">
+    <li nz-menu-item nzSelected [routerLink]="['/']">
+      <span nz-icon nzType="home"></span>
+      Accueil
+    </li>
+  </ul>
+  <div class="header-right-bloc" *ngIf="utilisateur$ | async as user">
+    <div class="avatar right" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+      <i nz-icon nzType="down"></i>
+      <nz-avatar nzIcon="user"></nz-avatar>
+    </div>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item>Gestion des utilisateurs</li>
+        <li nz-menu-divider></li>
+        <li class="profil" nz-menu-item>
+          <div>{{ user ? user.prenom + ' ' + user.nom : '' }}</div>
+        </li>
+        <li nz-menu-divider></li>
+        <li nz-menu-item>Mon profil</li>
+        <li nz-menu-divider></li>
+        <li nz-menu-item (click)="logout()">Se déconnecter</li>
+        <li nz-menu-divider></li>
+        <li nz-menu-item>Version {{ version }}</li>
+      </ul>
+    </nz-dropdown-menu>
+  </div>
+</div>

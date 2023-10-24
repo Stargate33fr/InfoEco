@@ -1,0 +1,30 @@
+@import '../../../assets/_mixins.less';
+
+.helvet {
+  font-family: @fontFamily;
+}
+
+h1 {
+  text-align: center;
+}
+
+.sticky {
+  position: fixed;
+  top: 64px;
+  overflow: hidden;
+  z-index: 100;
+  width: 100%;
+}
+
+my-slide-panel {
+  border: none;
+  width: 100%;
+
+  div {
+    font: 20px sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
