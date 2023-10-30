@@ -1,0 +1,92 @@
+<form nz-form [formGroup]="paiementForm">
+  <div nz-row nzGutter="24">
+    <div nz-col nzSpan="12">
+      <nz-form-item>
+        <nz-form-control>
+          <molecules-select
+            formControlName="mois"
+            placeholder="pour le mois de"
+            [data]="moisPaiement$"
+            id="mois"
+            longueur="200"
+            (ngModelChange)="valideMoisAnnee()"
+          ></molecules-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="12">
+      <nz-form-item>
+        <nz-form-control>
+          <molecules-select
+            formControlName="annee"
+            placeholder="pour l'année"
+            [data]="anneePaiement$"
+            id="annee"
+            longueur="200"
+            (ngModelChange)="valideMoisAnnee()"
+          ></molecules-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <div nz-row nzGutter="24">
+    <div nz-col nzSpan="12">
+      <nz-form-item>
+        <nz-form-control>
+          <molecules-select
+            formControlName="typePaiementId"
+            placeholder="Type paiement"
+            [data]="typePaiement$"
+            id="typePaiementId"
+            longueur="200"
+            [disabled]="disabled"
+            (ngModelChange)="remplirMontantDepotDeGarantieLoyer($event)"
+          ></molecules-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="12">
+      <nz-form-item>
+        <nz-form-control>
+          <molecules-input-number
+            longueur="200"
+            placeholder="Montant"
+            formControlName="montant"
+            [formatNumber]="true"
+            uniteDeMesure="€"
+            id="montant"
+            [disabled]="disabled"
+          ></molecules-input-number>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <div nz-row nzGutter="24" *ngIf="genererQuittanceLoyer">
+    <div nz-col nzSpan="12">
+      <nz-form-item>
+        <nz-form-control>
+          <label nz-checkbox formControlName="genereQuittanceLoyer" id="genereQuittanceLoyer">Générer la quittance de loyer</label>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <div nz-row nzJustify="space-between" class="button-action">
+        <div nz-col>
+          <button nz-button nzShape="round" nzType="primary" (click)="close()">
+            <i nz-icon nzType="close" nzTheme="outline"></i>
+            Annuler
+          </button>
+        </div>
+        <div nz-col>
+          <button nz-button nzType="primary" nzShape="round" (click)="ajouter()" [disabled]="!paiementForm.valid" [nzLoading]="loadingSave">
+            <i nz-icon nzType="save" nzTheme="outline"></i>
+            <label>Ajouter</label>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

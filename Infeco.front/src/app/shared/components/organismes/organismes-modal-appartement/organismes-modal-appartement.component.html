@@ -1,0 +1,169 @@
+<form nz-form [formGroup]="appartementForm">
+  <div nz-row nzGutter="24">
+    <div nz-col nzSpan="24">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="L'adresse est obligatoire">
+          <molecules-input
+            longueur="580"
+            placeholder="Adresse"
+            formControlName="adresse"
+            id="adresse"
+            (ngModelChange)="valeurValide()"
+          ></molecules-input>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="12"></div>
+  </div>
+  <div nz-row nzGutter="24">
+    <div nz-col nzSpan="24">
+      <nz-form-item>
+        <nz-form-control>
+          <molecules-input
+            longueur="580"
+            formControlName="complementAdresse"
+            placeholder="Complément Adresse"
+            id="complementAdresse"
+            (ngModelChange)="valeurValide()"
+          ></molecules-input>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <div nz-row nzGutter="24">
+    <div nz-col nzSpan="10" *ngIf="nomVille" class="nomVille">
+      <label>{{ nomVille }}</label>
+    </div>
+    <div nz-col nzSpan="10" *ngIf="!nomVille">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="La ville est incorrecte">
+          <molecules-ville
+            id="villeId"
+            formControlName="villeId"
+            placeholder="Ville (entrer 2 lettres minimum)"
+            longueur="200"
+            (ngModelChange)="valeurValide()"
+          ></molecules-ville>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="10">
+      <nz-form-item>
+        <nz-form-control>
+          <molecules-input
+            longueur="240"
+            formControlName="nomResidence"
+            placeholder="Nom de la résidence"
+            id="nomResidence"
+            (ngModelChange)="valeurValide()"
+          ></molecules-input>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="4">
+      <nz-form-item>
+        <nz-form-control>
+          <molecules-input-number
+            longueur="80"
+            formControlName="numeroAppartement"
+            placeholder="N° apt."
+            nzTooltipTitle="Numéro de l'appartement"
+            id="numeroAppartement"
+            (ngModelChange)="valeurValide()"
+          ></molecules-input-number>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <div nz-row nzGutter="24">
+    <div nz-col nzSpan="8">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Le loyer est obligatoire">
+          <molecules-input-number
+            longueur="180"
+            placeholder="Loyer"
+            formControlName="loyer"
+            [formatNumber]="true"
+            uniteDeMesure="€"
+            id="loyer"
+            (keyup)="valeurValide()"
+          ></molecules-input-number>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="8">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Le dépôt de garantie est obligatoire">
+          <molecules-input-number
+            longueur="180"
+            placeholder="Depot de garantie"
+            formControlName="depotDeGarantie"
+            [formatNumber]="true"
+            uniteDeMesure="€"
+            id="depotDeGrantie"
+            (keyup)="valeurValide()"
+          ></molecules-input-number>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="8">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Le prix des charges est obligatoire">
+          <molecules-input-number
+            longueur="180"
+            placeholder="Prix des charges"
+            formControlName="prixDesCharges"
+            [formatNumber]="true"
+            uniteDeMesure="€"
+            id="prixDesCharges"
+            (keyup)="valeurValide()"
+          ></molecules-input-number>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <div nz-row nzGutter="24">
+    <div nz-col nzSpan="10">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="La surface est obligatoire">
+          <molecules-input-number
+            longueur="225"
+            formControlName="nombreDeM2"
+            placeholder="Surface"
+            id="nombreDeM2"
+            (ngModelChange)="valeurValide()"
+          ></molecules-input-number>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="10">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Le type appartement est obligatoire">
+          <molecules-select
+            formControlName="typeAppartementId"
+            placeholder="Type Appartement"
+            [data]="typeAppartement$"
+            id="typeAppartementId"
+            longueur="240"
+            (ngModelChange)="valeurValide()"
+          ></molecules-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <br />
+  <div nz-row nzJustify="space-between">
+    <div nz-col>
+      <button nz-button nzShape="round" nzType="primary" (click)="close()">
+        <i nz-icon nzType="close" nzTheme="outline"></i>
+        Annuler
+      </button>
+    </div>
+    <div nz-col>
+      <button nz-button nzType="primary" nzShape="round" (click)="confirm()" [disabled]="confirmDisabled" [nzLoading]="loadingSave">
+        <i nz-icon nzType="save" nzTheme="outline"></i>
+        <label>Valider</label>
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,36 @@
+<nz-card [nzBordered]="false" nzTitle="Etat des lieux" [nzExtra]="extraTemplate">
+  <div nz-row>
+    <div nz-col [nzSpan]="24">
+      <molecules-datePicker
+        placeholder="Date d'entrée"
+        [(ngModel)]="dateEtatDesLieux"
+        format="dd/MM/yyyy"
+        [disabled]="disabled"
+      ></molecules-datePicker>
+    </div>
+  </div>
+  <div nz-row class="espace">
+    <textarea rows="10" nz-input [(ngModel)]="commentaire" [disabled]="disabled">{{ commentaire }}</textarea>
+  </div>
+</nz-card>
+<ng-template #extraTemplate>
+  <button
+    type="button"
+    class="button-styled-green button-styled button-action"
+    (click)="activeModifier()"
+    *ngIf="disabled && dateEtatDesLieux"
+  >
+    Activer pour modification
+  </button>
+  <button
+    type="button"
+    class="button-styled-green button-styled button-action"
+    (click)="activeModifier()"
+    *ngIf="!dateEtatDesLieux && disabled"
+  >
+    Ajouter un état des lieux
+  </button>
+  <button type="button" class="button-styled-green button-styled button-action" (click)="enregistrer()" *ngIf="!disabled">
+    Enregistrer
+  </button>
+</ng-template>

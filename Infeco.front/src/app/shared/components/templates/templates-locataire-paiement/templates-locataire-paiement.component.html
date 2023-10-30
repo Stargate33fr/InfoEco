@@ -1,0 +1,39 @@
+<nz-card [nzBordered]="false" nzTitle="Paiement" [nzExtra]="extraTemplate" class="inboxContainer">
+  <nz-table #basicTable [nzData]="listOfData" nzSize="small" nzShowPagination [nzLoading]="loading">
+    <thead>
+      <tr>
+        <th>Montant</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.montant }}</td>
+        <td>{{ data.datePaiement | date : 'dd/MM/yyyy' }}</td>
+        <td>{{ data.typePaiement.nom }}</td>
+        <td>
+          <button nz-button nzType="default">
+            <span nz-icon nzType="edit"></span>
+          </button>
+          <button
+            nz-button
+            nzType="default"
+            nz-popconfirm
+            nzPopconfirmTitle="Etes-vous sûr de vouloiur supprimer ce paiement? Cette opération est irreversible"
+            nzPopconfirmPlacement="bottom"
+            (nzOnConfirm)="supprimerPaiement(data.id)"
+            (nzOnCancel)="cancel()"
+          >
+            <span nz-icon nzType="delete"></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</nz-card>
+
+<ng-template #extraTemplate>
+  <button type="button" class="button-styled-green button-styled button-action" (click)="ajouterUnPaiement()">Ajouter un paiement</button>
+</ng-template>

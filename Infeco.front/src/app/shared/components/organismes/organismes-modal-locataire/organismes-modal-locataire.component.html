@@ -1,0 +1,271 @@
+<nz-steps [nzCurrent]="current" nzSize="small">
+  <nz-step nzTitle="Identite du Locataire"></nz-step>
+  <nz-step nzTitle="Appartement"></nz-step>
+  <nz-step nzTitle="Récapitulatif"></nz-step>
+</nz-steps>
+<div *ngIf="current === 0">
+  <nz-spin [nzSpinning]="isSpinningLocataire">
+    <form nz-form [formGroup]="locataireForm">
+      <div nz-row nzGutter="24">
+        <div nz-col nzSpan="24">
+          <nz-form-item>
+            <nz-form-control>
+              <molecules-select
+                formControlName="civilite"
+                placeholder="Civilite"
+                [data]="civilite$"
+                id="situationFamiliale"
+                longueur="200"
+                (ngModelChange)="valeurValide()"
+              ></molecules-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12"></div>
+      </div>
+      <div nz-row nzGutter="24">
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-control>
+              <molecules-input
+                longueur="200"
+                placeholder="Nom du locataire"
+                formControlName="nom"
+                id="nomLocataire"
+                (ngModelChange)="valeurValide()"
+              ></molecules-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-control>
+              <molecules-input
+                placeholder="Prénom du locataire"
+                id="prenomLocataire"
+                longueur="200"
+                formControlName="prenom"
+                (ngModelChange)="valeurValide()"
+              ></molecules-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row nzGutter="24">
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="The input is not valid E-mail!">
+              <molecules-input
+                placeholder="adresse email"
+                id="maillocataire"
+                formControlName="mail"
+                longueur="200"
+                (ngModelChange)="valeurValide()"
+              >
+              </molecules-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-control>
+              <molecules-datePicker
+                formControlName="dateDeNaissance"
+                longueur="200"
+                placeholder="Date de naissance"
+                format="dd/MM/yyyy"
+                (ngModelChange)="valeurValide()"
+              ></molecules-datePicker>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row nzGutter="24">
+        <div nz-col nzSpan="12">
+          <molecules-input
+            placeholder="Telephone"
+            id="telephone"
+            [estUnTelephone]="true"
+            formControlName="telephone"
+            longueur="200"
+            (ngModelChange)="valeurValide()"
+          >
+          </molecules-input>
+        </div>
+        <div nz-col nzSpan="12">
+          <molecules-input placeholder="IBAN" id="iban" formControlName="iban" longueur="200" (ngModelChange)="valeurValide()">
+          </molecules-input>
+        </div>
+      </div>
+      <div nz-row nzJustify="space-between" class="button-action">
+        <div nz-col>
+          <button nz-button nzShape="round" nzType="primary" (click)="close()">
+            <i nz-icon nzType="close" nzTheme="outline"></i>
+            Annuler
+          </button>
+        </div>
+        <div nz-col *ngIf="current !== 0">
+          <button
+            nz-button
+            nzType="primary"
+            nzShape="round"
+            (click)="precedent()"
+            [disabled]="!locataireForm.valid"
+            [nzLoading]="loadingSave"
+          >
+            <i nz-icon nzType="save" nzTheme="outline"></i>
+            <label>Précédent</label>
+          </button>
+        </div>
+        <div nz-col>
+          <button
+            nz-button
+            nzType="primary"
+            nzShape="round"
+            (click)="confirm()"
+            [disabled]="!locataireForm.valid"
+            [nzLoading]="loadingSave"
+          >
+            <i nz-icon nzType="save" nzTheme="outline"></i>
+            <label>Next</label>
+          </button>
+        </div>
+      </div>
+    </form>
+  </nz-spin>
+</div>
+<div *ngIf="current === 1">
+  <form nz-form [formGroup]="appartementForm">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <label>Adresse: {{ appartement.adresse }} {{ appartement.codePostal }} {{ appartement.ville }}</label>
+      </div>
+    </div>
+
+    <nz-spin [nzSpinning]="isSpinningLocataire">
+      <form nz-form [formGroup]="appartementForm">
+        <div nz-row>
+          <div nz-col nzSpan="12">
+            <nz-form-item>
+              <nz-form-control>
+                <molecules-select
+                  formControlName="depotDeGarentieRegle"
+                  placeholder="dépôt de garantie réglé?"
+                  [data]="choixOuiNon$"
+                  id="depotDeGarentieRegle"
+                  longueur="250"
+                  [disabled]="locataireId !== null"
+                ></molecules-select>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzSpan="12">
+            <molecules-datePicker
+              formControlName="dateEntree"
+              longueur="200"
+              placeholder="Date d'entrée"
+              format="dd/MM/yyyy"
+              (ngModelChange)="valeurValide()"
+              [disabled]="locataireId !== null"
+            ></molecules-datePicker>
+          </div>
+        </div>
+      </form>
+    </nz-spin>
+
+    <div nz-row nzJustify="space-between" class="button-action">
+      <div nz-col>
+        <button nz-button nzShape="round" nzType="primary" (click)="close()">
+          <i nz-icon nzType="close" nzTheme="outline"></i>
+          Annuler
+        </button>
+      </div>
+      <div nz-col>
+        <button
+          nz-button
+          nzType="primary"
+          nzShape="round"
+          (click)="precedent()"
+          [disabled]="!locataireForm.valid"
+          [nzLoading]="loadingSave"
+        >
+          <i nz-icon nzType="save" nzTheme="outline"></i>
+          <label>Précédent</label>
+        </button>
+      </div>
+      <div nz-col>
+        <button
+          nz-button
+          nzType="primary"
+          nzShape="round"
+          (click)="confirm()"
+          [disabled]="!appartementForm.valid"
+          [nzLoading]="loadingSave"
+        >
+          <i nz-icon nzType="save" nzTheme="outline"></i>
+          <label>Next</label>
+        </button>
+      </div>
+    </div>
+  </form>
+  <br />
+</div>
+<div *ngIf="current === 2">
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <nz-descriptions nzTitle="Locataire">
+        <nz-descriptions-item nzTitle="Nom">{{ locataireAjout.nom }}</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Prenom">{{ locataireAjout.prenom }}</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Date de naissance">{{ locataireAjout.dateDeNaissance | date : 'dd/MM/yyyy' }}</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="IBAN">{{ locataireAjout.iban }}</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="téléphone">{{ locataireAjout.telephone }}</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Mail">{{ locataireAjout.mail }}</nz-descriptions-item>
+      </nz-descriptions>
+      <nz-descriptions nzTitle="Appartement">
+        <nz-descriptions-item nzTitle="Adresse">{{ appartement.adresse }}</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Code Postal">{{ appartement.codePostal }}</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Ville">{{ appartement.ville }}</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="N°Appartement">{{ appartement.numeroAppartement }}</nz-descriptions-item>
+        <nz-descriptions-item nzTitle="Résidence">{{ appartement.nomResidence }}</nz-descriptions-item>
+      </nz-descriptions>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <div nz-row nzJustify="space-between" class="button-action">
+        <div nz-col>
+          <button nz-button nzShape="round" nzType="primary" (click)="close()">
+            <i nz-icon nzType="close" nzTheme="outline"></i>
+            Annuler
+          </button>
+        </div>
+        <div nz-col>
+          <button
+            nz-button
+            nzType="primary"
+            nzShape="round"
+            (click)="precedent()"
+            [disabled]="!locataireForm.valid"
+            [nzLoading]="loadingSave"
+          >
+            <i nz-icon nzType="save" nzTheme="outline"></i>
+            <label>Précédent</label>
+          </button>
+        </div>
+        <div nz-col>
+          <button
+            nz-button
+            nzType="primary"
+            nzShape="round"
+            (click)="enregistrement()"
+            [disabled]="!appartementForm.valid"
+            [nzLoading]="loadingSave"
+          >
+            <i nz-icon nzType="save" nzTheme="outline"></i>
+            <label>Confirmer et enregistrer</label>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

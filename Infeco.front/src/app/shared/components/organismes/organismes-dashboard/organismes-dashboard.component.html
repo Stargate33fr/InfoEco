@@ -1,0 +1,179 @@
+<div nz-row>
+  <div nz-col nzSpan="8">
+    <h2>Vos appartements</h2>
+  </div>
+  <div nz-col nzSpan="4" nzOffset="12">
+    <button type="button" class="button-styled-green button-styled button-action" (click)="creerNouveauAppartement()">
+      nouvel appartement
+    </button>
+  </div>
+</div>
+<div nz-row class="dernierBoutonHaut">
+  <div nz-col nzSpan="8">
+    <label> {{ nombreAppartement }} appartement</label>
+    <label *ngIf="nombreAppartement > 1">s</label>
+  </div>
+</div>
+<div nz-row>
+  <form nz-form [formGroup]="rechercheForm" class="ant-advanced-search-form">
+    <div nz-row [nzGutter]="24">
+      <div nz-col nzSpan="6" [hidden]="isCollapse">
+        <nz-form-item>
+          <nz-form-label>Ville</nz-form-label>
+          <nz-form-control>
+            <molecules-input longueur="200" placeholder="Ville" formControlName="ville" id="ville"></molecules-input>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzSpan="6" [hidden]="isCollapse">
+        <nz-form-item>
+          <nz-form-label>Nom Locataire</nz-form-label>
+          <nz-form-control>
+            <molecules-input
+              longueur="200"
+              placeholder="Nom du locataire"
+              formControlName="nomLocataire"
+              id="nomLocataire"
+            ></molecules-input>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzSpan="6" [hidden]="isCollapse">
+        <nz-form-item>
+          <nz-form-label>Type Appartement</nz-form-label>
+          <nz-form-control>
+            <molecules-select
+              formControlName="typeAppartement"
+              placeholder="Type Appartement"
+              [data]="typeAppartement$"
+              id="situationFamiliale"
+              longueur="200"
+            ></molecules-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col [nzSpan]="24" class="search-area">
+        <button nz-button [nzType]="'primary'" *ngIf="!isCollapse" (click)="recherche()">Recherche</button>
+        <button nz-button (click)="resetForm()" *ngIf="!isCollapse" (click)="recherche()">Clear</button>
+        <a class="collapse" (click)="toggleCollapse()">
+          <label *ngIf="isCollapse">Voir Filtre</label>
+          <label *ngIf="!isCollapse">Refermer</label>
+          <span nz-icon [nzType]="isCollapse ? 'down' : 'up'"></span>
+        </a>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="search-result-list">
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <nz-table
+        #virtualTable
+        [nzLoading]="loading"
+        [nzBordered]="true"
+        [nzData]="listOfData"
+        [nzVirtualItemSize]="this.nombreElementParPage"
+        [nzFrontPagination]="false"
+        [nzShowPagination]="false"
+        [nzScroll]="{ y: '400px' }"
+      >
+        <thead>
+          <tr>
+            <th nzWidth="40px"></th>
+            <th
+              *ngFor="let column of listOfColumns"
+              [nzSortOrder]="column.sortOrder"
+              [nzSortFn]="column.sortFn"
+              [nzSortDirections]="column.sortDirections"
+              [nzFilterMultiple]="column.filterMultiple"
+              [nzFilters]="column.listOfFilter"
+              [nzFilterFn]="column.filterFn"
+              [nzWidth]="column.width"
+              [nzLeft]="column.left"
+              [nzRight]="column.right"
+            >
+              {{ column.name }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-template nz-virtual-scroll let-data let-index="index">
+            <tr>
+              <td [nzExpand]="expandSet.has(data.id)" (nzExpandChange)="onExpandChange(data.id, $event)"></td>
+              <td>{{ data.nomResidence }}</td>
+              <td>{{ data.adresse }}</td>
+              <td>{{ data.codePostal }}</td>
+              <td>{{ data.ville }}</td>
+              <td>{{ data.numeroAppartement }}</td>
+              <td>{{ data.typeAppartement }}</td>
+              <td>{{ data.nombreDeMetre2 }}</td>
+              <td>{{ data.id }}</td>
+              <td>
+                <button nz-button nzType="default">
+                  <span nz-icon nzType="edit" (click)="modifierAppartement(data.id)"></span>
+                </button>
+                <button
+                  nz-button
+                  nzType="default"
+                  nz-popconfirm
+                  nzPopconfirmTitle="Etes-vous sûr de vouloiur supprimer ce locataire? Cette opération est irreversible et supprimera tous les informations sur ce locataire?"
+                  nzPopconfirmPlacement="bottom"
+                  (nzOnConfirm)="supprimerAppartement(data.id)"
+                  (nzOnCancel)="cancel()"
+                >
+                  <span nz-icon nzType="close-circle"></span>
+                </button>
+              </td>
+            </tr>
+            <tr [nzExpand]="expandSet.has(data.id)">
+              <div nz-row>
+                <div nz-col *ngFor="let locataire of nomLocataire(data.id)" class="locataire">
+                  <nz-card style="width: 300px" [nzActions]="[actionEdit, actionEllipsis, actionDelete]" *ngIf="locataire.nom">
+                    <nz-card-meta
+                      nzTitle="{{ locataire.prenom }} {{ locataire.nom }} "
+                      nzDescription="{{ locataire.mail }} / {{ locataire.telephone }}"
+                      [nzAvatar]="avatarTemplate"
+                    ></nz-card-meta>
+                  </nz-card>
+                  <nz-card style="width: 300px" [nzActions]="[actionAdd]" *ngIf="!locataire.nom">
+                    <nz-card-meta nzTitle="Ajouter un locataire" nzDescription="Ajouter un locataire en appuyant sur +"></nz-card-meta>
+                  </nz-card>
+                  <ng-template #avatarTemplate>
+                    <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+                  </ng-template>
+                  <ng-template #actionEdit>
+                    <span nz-icon nzType="edit" (click)="modifierLocataire(data, locataire.id)"></span>
+                  </ng-template>
+                  <ng-template #actionAdd>
+                    <span nz-icon nzType="plus" (click)="creerNouveauLocataire(data)"></span>
+                  </ng-template>
+                  <ng-template #actionDelete>
+                    <a
+                      nz-popconfirm
+                      nzPopconfirmTitle="Etes-vous sûr de vouloiur supprimer ce locataire? Cette opération est irreversible et supprimera tous les informations sur ce locataire?"
+                      nzPopconfirmPlacement="bottom"
+                      (nzOnConfirm)="supprimerLocataire(locataire.id)"
+                      (nzOnCancel)="cancel()"
+                    >
+                      <span nz-icon nzType="close-circle"></span>
+                    </a>
+                  </ng-template>
+                  <ng-template #actionEllipsis>
+                    <i
+                      nz-icon
+                      nzType="search"
+                      nzTheme="outline"
+                      (click)="ouvrirPaiement(getAppartementLocataireId(locataire.id, data.id), locataire.id)"
+                    ></i>
+                  </ng-template>
+                </div>
+              </div>
+            </tr>
+          </ng-template>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+</div>

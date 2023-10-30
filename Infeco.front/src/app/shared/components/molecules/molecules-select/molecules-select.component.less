@@ -1,0 +1,153 @@
+.textfield-outlined {
+  padding-top: 6px;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+  height: 47px;
+}
+
+// Form elements
+.textfield-outlined > nz-select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0px 13px 8px;
+  font-size: 14px;
+  line-height: inherit;
+  color: rgb(39, 46, 54);
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightblue;
+  border-radius: 0.5em;
+  -webkit-text-fill-color: currentColor; // Safari
+  background-color: transparent;
+  transition: border 0.2s, box-shadow 0.2s;
+  text-align: left;
+  padding-left: 0;
+}
+
+.textfield-outlined > nz-select {
+  z-index: 2;
+}
+
+// Label
+.textfield-outlined > label {
+  display: flex;
+  width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  line-height: 15px;
+  color: rgb(146, 150, 154);
+  cursor: text;
+  transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+}
+
+.textfield-outlined > nz-select:not(:focus):placeholder-shown + label {
+  font-size: 12px;
+  line-height: 54px;
+}
+
+// Corners
+.textfield-outlined > nz-select + label::before,
+.textfield-outlined > nz-select + label::after {
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  height: 8px;
+  min-width: 10px;
+  margin-top: 6px;
+  //border-top: solid 1px rgb(146, 150, 154);
+  pointer-events: none;
+  box-shadow: inset 0 1px transparent;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.textfield-outlined > nz-select + label::before {
+  margin-right: 4px;
+  border-left: solid 1px transparent;
+  border-radius: 4px 0;
+}
+
+.textfield-outlined > nz-select + label::after {
+  flex-grow: 1;
+  margin-left: 4px;
+  border-right: solid 1px transparent;
+  border-radius: 0 4px;
+}
+
+.textfield-outlined > nz-select:not(:focus):placeholder-shown + label::before,
+.textfield-outlined > nz-select:not(:focus):placeholder-shown + label::after {
+  border-top-color: transparent;
+}
+
+// Hover
+.textfield-outlined ~ label:hover > nz-select {
+  border-color: transparent;
+}
+
+.textfield-outlined label:hover > nz-select + label::before,
+.textfield-outlined label:hover > nz-select + label::after {
+  border-top-color: transparent;
+}
+
+.textfield-outlined label:hover > nz-select:not(:focus):placeholder-shown {
+  border-color: transparent;
+}
+
+// Focus
+.textfield-outlined > nz-select:focus {
+  outline: none;
+}
+
+.textfield-outlined > nz-select:focus + label {
+  color: rgb(61, 111, 158);
+}
+
+.textfield-outlined > nz-select:focus + label::before,
+.textfield-outlined > nz-select:focus + label::after {
+  border-top-color: rgb(61, 111, 158) !important;
+}
+
+// Disabled
+.textfield-outlined > nz-select:disabled,
+.textfield-outlined > nz-select:disabled + label {
+  color: rgba(189, 192, 197, 0.5);
+  border-color: transparent rgba(189, 192, 197, 0.5) rgba(189, 192, 197, 0.5) !important;
+  pointer-events: none;
+}
+
+.textfield-outlined > nz-select:disabled + label::before,
+.textfield-outlined > nz-select:disabled + label::after {
+  border-top-color: rgba(189, 192, 197, 0.5) !important;
+}
+
+.textfield-outlined > nz-select:disabled:placeholder-shown,
+.textfield-outlined > nz-select:disabled:placeholder-shown + label {
+  border-top-color: rgba(189, 192, 197, 0.5) !important;
+}
+
+.textfield-outlined > nz-select:disabled:placeholder-shown + label::before,
+.textfield-outlined > nz-select:disabled:placeholder-shown + label::after {
+  border-top-color: transparent !important;
+}
+
+nz-select:-webkit-autofill,
+nz-select:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+}
+
+// Faster transition in Safari due to fractional font-size issue
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .textfield-outlined > nz-select,
+    .textfield-outlined > nz-select + label,
+    .textfield-outlined > nz-select + label::before,
+    .textfield-outlined > nz-select + label::after {
+      transition-duration: 0.1s;
+    }
+  }
+}

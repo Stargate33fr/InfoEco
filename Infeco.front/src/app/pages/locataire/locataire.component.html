@@ -1,0 +1,19 @@
+<gridster [options]="options">
+  <gridster-item [item]="item" *ngFor="let item of dashboard; let index = index">
+    <templates-locataire-etat-des-lieux
+      *ngIf="index == 0"
+      [locataireAppartementId]="locataireAppartementId"
+    ></templates-locataire-etat-des-lieux>
+    <templates-locataire-paiement
+      *ngIf="index == 2"
+      [locataireAppartementId]="locataireAppartementId"
+      (refreshQuittanceLoyer)="refreshQuittanceLoyer($event)"
+    ></templates-locataire-paiement>
+    <templates-locataires-quittance-de-loyer
+      *ngIf="index == 1 && locataireId && locataireAppartementId"
+      [locataireAppartementId]="locataireAppartementId"
+      [locataireId]="locataireId"
+      [refreshListeQuittance]="rafraichirQuittanceLoyer"
+    ></templates-locataires-quittance-de-loyer>
+  </gridster-item>
+</gridster>

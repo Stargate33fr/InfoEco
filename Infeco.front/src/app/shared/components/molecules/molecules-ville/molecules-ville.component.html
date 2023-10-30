@@ -1,0 +1,37 @@
+<div class="textfield-outlined">
+  <nz-input-group>
+    <input
+      #inputElement
+      nz-input
+      autocomplete
+      [(ngModel)]="ville"
+      [id]="id"
+      [nzAutocomplete]="auto"
+      (input)="onInput($event)"
+      placeholder=" "
+      (ngModelChange)="selectOption($event)"
+    />
+    <label [for]="id" [style.width.px]="longueur"
+      ><span class="placeHolderText">{{ placeholder }}</span></label
+    >
+    <nz-autocomplete #auto>
+      <ng-container *ngIf="displayTips; else dataVilles">
+        <nz-option nzDisabled nzCustomContent> Ville ou Code Postal </nz-option>
+      </ng-container>
+      <ng-template #dataVilles>
+        <ng-container *ngIf="villeItems; else loadingVilles">
+          <nz-auto-option *ngFor="let o of villeItems" [nzValue]="o.id">{{ o.nom }} - {{ o.codePostal }}</nz-auto-option>
+        </ng-container>
+      </ng-template>
+      <ng-template #loadingVilles>
+        <nz-option nzDisabled nzCustomContent>
+          <div class="organismes-contact-filter-loading" nz-row nzType="flex" nzJustify="center">
+            <nz-spin nzSimple></nz-spin></div
+        ></nz-option>
+      </ng-template>
+    </nz-autocomplete>
+  </nz-input-group>
+  <ng-template #suffixIconSearch>
+    <i nz-icon nzType="search"></i>
+  </ng-template>
+</div>
