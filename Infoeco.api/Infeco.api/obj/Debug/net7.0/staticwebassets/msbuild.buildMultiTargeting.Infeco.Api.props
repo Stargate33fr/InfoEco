@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Infeco.Api.props" />
-</Project>
