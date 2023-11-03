@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infeco.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Infeco.Api.Common.SwashBuckle.AttachOperationNameFilter">
+            <summary>
+            AttachOperationNameFilter
+            </summary>
+        </member>
+        <member name="M:Infeco.Api.Common.SwashBuckle.AttachOperationNameFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Apply
+            </summary>
+            <param name="operation">operation</param>
+            <param name="context">context</param>
+        </member>
+        <member name="T:Infeco.Api.ViewModels.PaginationModel">
+            <summary>
+            Représente une pagination.
+            </summary>
+        </member>
+        <member name="F:Infeco.Api.ViewModels.PaginationModel.NombreElementParDefaut">
+            <summary>
+            Valeur par défaut pour le nombre d'éléments par page: 10.
+            </summary>
+        </member>
+        <member name="F:Infeco.Api.ViewModels.PaginationModel.IndexParDefaut">
+            <summary>
+            Valeur par défaut pour l'index de la page: 0.
+            </summary>
+        </member>
+        <member name="P:Infeco.Api.ViewModels.PaginationModel.Limite">
+            <summary>
+            Le nombre d'élément dans la page (par défaut: 10).
+            </summary>
+        </member>
+        <member name="P:Infeco.Api.ViewModels.PaginationModel.Index">
+            <summary>
+            L'index de la page (default: 0).
+            </summary>
+        </member>
+        <member name="P:Infeco.Api.ViewModels.PaginationModel.Skip">
+            <summary>
+            Le nombre d'élément à sauter dans le retour.
+            </summary>
+        </member>
+        <member name="M:Infeco.Api.ViewModels.PaginationModel.#ctor">
+            <summary>
+            Initialise une nouvelle instance de <see cref="T:Infeco.Api.ViewModels.PaginationModel"/> avec les valeurs par défaut.
+            See <see cref="F:Infeco.Api.ViewModels.PaginationModel.NombreElementParDefaut"/> and <see cref="F:Infeco.Api.ViewModels.PaginationModel.IndexParDefaut"/>.
+            </summary>
+        </member>
+        <member name="M:Infeco.Api.ViewModels.PaginationModel.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initialise une nouvelle instance de <see cref="T:Infeco.Api.ViewModels.PaginationModel" />.
+            </summary>
+            <param name="index">L'index de la page.</param>
+            <param name="limite">Le nombre maximum d'élément.</param>
+        </member>
+        <member name="T:Infeco.Api.ViewModels.TriModel">
+            <summary>
+            Représente un tri de données.
+            </summary>
+        </member>
+        <member name="F:Infeco.Api.ViewModels.TriModel.ChampParDefaut">
+            <summary>
+            Valeur par défaut pour le nom du champ: "Id".
+            </summary>
+        </member>
+        <member name="F:Infeco.Api.ViewModels.TriModel.AscendantParDefaut">
+            <summary>
+            Valeur par défaut pour indiquer si le tri est ascendant: true.
+            </summary>
+        </member>
+        <member name="P:Infeco.Api.ViewModels.TriModel.Champ">
+            <summary>
+            Le nom du champ à trier (par défaut: "Id").
+            </summary>
+        </member>
+        <member name="P:Infeco.Api.ViewModels.TriModel.Ascendant">
+            <summary>
+            Indique si le tri est ascendant ou pas.
+            </summary>
+        </member>
+        <member name="M:Infeco.Api.ViewModels.TriModel.#ctor">
+            <summary>
+            Initialise une nouvelle instance de <see cref="!:TriMOdel"/> avec les valeurs par défaut.
+            See <see cref="F:Infeco.Api.ViewModels.TriModel.ChampParDefaut"/> and <see cref="F:Infeco.Api.ViewModels.TriModel.AscendantParDefaut"/>.
+            </summary>
+        </member>
+        <member name="M:Infeco.Api.ViewModels.TriModel.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initialise une nouvelle instance de <see cref="!:TriMOdel" />.
+            </summary>
+            <param name="champ">Le nom du champ à trier.</param>
+            <param name="ascendant">Indique si le tri est ascendant.</param>
+        </member>
+    </members>
+</doc>
