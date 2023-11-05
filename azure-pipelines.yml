@@ -6,6 +6,12 @@
 trigger:
 - main
 
+resources:
+  repositories:
+  - repository: InfoEco
+    type: git
+    name: InfoEco/Infeco.front
+
 pool:
   vmImage: ubuntu-latest
 
