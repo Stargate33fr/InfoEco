@@ -8,7 +8,7 @@ trigger:
 
 resources:
   repositories:
-  - repository: InfoEco
+  - repository: InfoEco/Infeco.front
     type: git
     name: /Infeco.front
 
