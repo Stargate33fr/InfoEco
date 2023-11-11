@@ -43,8 +43,8 @@ namespace Infeco.Api.Commands.Paiement
                 if (commande.GenererQuittanceLoyer)
                 {
                     var creerQuittanceLoyerCommand = new CreerQuittanceLoyerCommand();
-                    creerQuittanceLoyerCommand.Annee = commande.DatePaiement.Year;
-                    creerQuittanceLoyerCommand.Mois = commande.DatePaiement.Month;
+                    creerQuittanceLoyerCommand.Annee = commande.DatePaiement.ToLocalTime().Year;
+                    creerQuittanceLoyerCommand.Mois = commande.DatePaiement.ToLocalTime().Month;
                     creerQuittanceLoyerCommand.LocataireAppartementId = commande.LocataireAppartementId;
                     // on regarde si il n'y a pas eu un montant CAF avant
                     var queryCaf = new ObtenirTousPaiementQuery();
