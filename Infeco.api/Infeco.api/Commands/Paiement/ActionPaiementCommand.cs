@@ -10,5 +10,7 @@ namespace Infeco.Api.Commands.Locataire
         public int TypePaiementId { get; set; }
         public DateTime DatePaiement { get; set; }
         public bool GenererQuittanceLoyer { get; set; } = false;
+        public int Mois { get; set; }
+        public int Annee { get; set; }  
     }
 }
