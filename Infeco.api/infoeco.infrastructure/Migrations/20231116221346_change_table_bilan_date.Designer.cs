@@ -3,6 +3,7 @@ using System;
 using Infoeco.infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infoeco.infrastructure.Migrations
 {
     [DbContext(typeof(InfoEcoDbContext))]
-    partial class InfoEcoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231116221346_change_table_bilan_date")]
+    partial class change_table_bilan_date
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

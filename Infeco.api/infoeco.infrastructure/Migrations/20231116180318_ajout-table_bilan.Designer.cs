@@ -3,6 +3,7 @@ using System;
 using Infoeco.infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infoeco.infrastructure.Migrations
 {
     [DbContext(typeof(InfoEcoDbContext))]
-    partial class InfoEcoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231116180318_ajout-table_bilan")]
+    partial class ajouttable_bilan
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,14 +133,14 @@ namespace Infoeco.infrastructure.Migrations
                     b.Property<DateTime>("CreeLe")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<string>("Mail")
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("ModifieLe")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("MoisEnvoi")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

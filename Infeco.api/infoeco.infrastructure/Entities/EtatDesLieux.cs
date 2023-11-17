@@ -15,6 +15,8 @@ namespace Infoeco.infrastructure.Entities
         [StringLength(255)]
         public string? Remarque { get; set; }
         public int LocataireAppartementId { get; set; }
+
+        public bool Sortie = false;
         public virtual LocataireAppartementEntite? LocataireAppartement { get; set; }
     }
 }
