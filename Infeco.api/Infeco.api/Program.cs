@@ -218,3 +218,9 @@ internal static class CustomExtensions
         });
     }
 }
+
+// Votre code de génération de PDF avec iTextSharp ou une autre bibliothèque
+// ...
+
+// Enregistrez le fichier PDF généré dans Azure Blob Storage
+// Utilisez le SDK Azure Blob Storage pour le stocker dans un conteneur spécifique

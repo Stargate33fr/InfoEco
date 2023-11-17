@@ -61,6 +61,8 @@ export class LocatairePaiementAjout {
   typePaiementId: number;
   datePaiement: Date;
   genererQuittanceLoyer: boolean;
+  mois: number;
+  annee: number;
 }
 
 export class LocatairePaiementRetour {

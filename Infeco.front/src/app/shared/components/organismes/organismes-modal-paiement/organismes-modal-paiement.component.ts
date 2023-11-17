@@ -152,11 +152,13 @@ export class OrganismesModalPaiementComponent implements OnInit {
     this.loadingSave = true;
 
     const locatairePaiementAjout = new LocatairePaiementAjout();
-    locatairePaiementAjout.datePaiement = new Date(paiementValue.annee, paiementValue.mois - 1, 1);
+    locatairePaiementAjout.datePaiement = new Date();
     locatairePaiementAjout.locataireAppartementId = this.locataireAppartementId;
     locatairePaiementAjout.montant = paiementValue.montant;
     locatairePaiementAjout.typePaiementId = paiementValue.typePaiementId;
     locatairePaiementAjout.genererQuittanceLoyer = paiementValue.genereQuittanceLoyer;
+    locatairePaiementAjout.mois = +paiementValue.mois;
+    locatairePaiementAjout.annee = +paiementValue.annee;
     this.paiementService
       .ajouterPaiement(locatairePaiementAjout)
       .pipe(takeUntil(this.destroy$))

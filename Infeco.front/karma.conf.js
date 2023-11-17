@@ -31,7 +31,7 @@ module.exports = function (config) {
       suppressAll: true, // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/top-invest-v6'),
+      dir: require('path').join(__dirname, './coverage/infecofront'),
       reports: ['html', 'lcovonly', 'text-summary'],
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],

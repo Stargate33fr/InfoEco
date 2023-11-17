@@ -9,7 +9,7 @@ import { RoutingKeys } from '@core/rounting/routing-keys';
 })
 export class AppComponent implements OnInit {
   public routingKey = RoutingKeys;
-  title = 'Info Eco';
+  title = 'InfEco';
 
   constructor() {}
 

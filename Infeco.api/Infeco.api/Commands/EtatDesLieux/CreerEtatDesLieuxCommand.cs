@@ -9,7 +9,7 @@ namespace Infeco.Api.Commands.EtatDesLieux
         public int LocataireAppartementId { get; set; }
         public DateTime DateEtatDesLieux { get; set; }
         public string? Remarque { get; set; }    
-
+        public bool Sortie { get; set; }
 
         public override ValidationResult Valide()
         {

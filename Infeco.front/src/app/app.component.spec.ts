@@ -28,8 +28,8 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'TopInvestV6'`, () => {
+  it(`should have as title 'InfEco'`, () => {
     fixture = TestBed.createComponent(AppComponent);
-    expect(component.title).toEqual('TopInvestV6');
+    expect(component.title).toEqual('InfEco');
   });
 });

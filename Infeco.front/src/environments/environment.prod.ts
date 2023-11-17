@@ -7,7 +7,7 @@ export const environment = {
     app: {
       id: 'InfoEco',
       version: '1.0.0',
-      env: 'local',
+      env: 'prod',
     },
     defaultWebApiUrlKey: 'api',
     urls: {

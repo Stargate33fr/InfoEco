@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Infeco.Api.Commands.Appartements;
+using Infeco.Api.Commands.Bilan;
 using Infeco.Api.Commands.EtatDesLieux;
 using Infeco.Api.Commands.Locataire;
 using Infeco.Api.Commands.LocataireAppartement;
@@ -42,6 +43,8 @@ namespace Infeco.Api.Infrastructure.AutoMapper
             CreateMap<CreerEtatDesLieuxCommand, EtatDesLieuxEntite>(); 
             CreateMap<CreerPaiementCommand, PaiementEntite>();
             CreateMap<CreerQuittanceLoyerCommand, QuittanceLoyerEntite>();
+            CreateMap<CreerEvtBilanCommand, BilanEntite>();
+            CreateMap<ModifierEvtBilanCommand, BilanEntite>();
         }
     }
 }

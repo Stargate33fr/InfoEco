@@ -11,7 +11,7 @@ export const environment = {
     },
     defaultWebApiUrlKey: 'api',
     urls: {
-      api: 'https://localhost:44375',
+      api: 'https://infecoapi20231024173907.azurewebsites.net',
     },
   },
   production: false,

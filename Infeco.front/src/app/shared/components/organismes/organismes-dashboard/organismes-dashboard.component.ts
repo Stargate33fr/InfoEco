@@ -83,7 +83,10 @@ export class OrganismesDashboardComponent implements OnInit, OnDestroy {
     this.remplirColumn('ID', '90px');
     this.remplirColumn('', '90px', false, false, false);
     this.filter = new FilterAppartement();
-    this.filter.agenceImmobiliereId = this.utilisateur.agenceImmobiliereId;
+    if (this.utilisateur) {
+      this.filter.agenceImmobiliereId = this.utilisateur.agenceImmobiliereId;
+    }
+
     this.getAppartements();
   }
 

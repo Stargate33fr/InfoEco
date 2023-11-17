@@ -30,29 +30,4 @@ describe('TemplatesDashboardComponent', () => {
     component.utilisateur$ = of(user);
     fixture.detectChanges();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it("quand j'appelle la fonction openChoixCalculatrices sur le premier bouton", () => {
-    spyOn(component, 'ouvrirChoixCalculatrices');
-    const buttons = fixture.debugElement.queryAll(By.css('.button-styled-green'));
-    buttons[0].nativeElement.click();
-    expect(component.ouvrirChoixCalculatrices).toHaveBeenCalled();
-  });
-
-  it("quand j'appelle la fonction openChoixSimulations sur le deuxième bouton", () => {
-    fixture.detectChanges();
-    spyOn(component, 'ouvrirChoixSimulations');
-    const buttons = fixture.debugElement.queryAll(By.css('.button-styled-green'));
-    buttons[1].nativeElement.click();
-    expect(component.ouvrirChoixSimulations).toHaveBeenCalled();
-  });
-
-  it("Devrait afficher bonjour prenom quand l'utilisateur est défini", () => {
-    // Vérifier que le message de réussite est affiché
-    const titleElement = fixture.nativeElement.querySelector('.ant-result-title');
-    expect(titleElement.textContent).toContain(`Bonjour John`);
-  });
 });

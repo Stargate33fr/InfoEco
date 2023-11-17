@@ -4,17 +4,19 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { MoleculesVilleComponent } from './molecules-ville.component';
+import { SharedTestingModule } from '@core/testing/shared.testing.module.spec';
+import { FormsModule } from '@angular/forms';
 
 describe('MoleculesVilleComponent', () => {
   let component: MoleculesVilleComponent;
   let fixture: ComponentFixture<MoleculesVilleComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MoleculesVilleComponent ]
-    })
-    .compileComponents();
-  }));
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [MoleculesVilleComponent],
+      imports: [SharedTestingModule, FormsModule],
+    });
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MoleculesVilleComponent);
