@@ -54,6 +54,7 @@ namespace Infoeco.infrastructure
         public virtual DbSet<EtatDesLieuxEntite>? EtatDesLieux { get; set; }
         public virtual DbSet<TypeAppartementEntite>? TypeAppartement { get; set; }
         public virtual DbSet<CiviliteEntite>? Civilite { get; set; }
+        public virtual DbSet<BilanEntite>? Bilan { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
