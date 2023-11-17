@@ -35,5 +35,7 @@ namespace Infoeco.Services
         Task<EtatDesLieuxEntite?> AjoutEtatDesLieux(EtatDesLieuxEntite etatsDesLieux);
         Task<QuittanceLoyerEntite?> AjoutQuittanceLoyer(QuittanceLoyerEntite quittanceLoyer);
         Task<PaiementEntite?> AjoutPaiement(PaiementEntite paiement);
+        Task<BilanEntite?> AjoutEvtBilan(BilanEntite bilan);
+        Task ModifierEvtBilan(BilanEntite bilan);
     }
 }
